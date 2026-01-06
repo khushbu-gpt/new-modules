@@ -20,7 +20,6 @@ function App() {
         >
           Learn React
         </a>
-        <h1>khushbu</h1>
       </header>
       <input type='text' placeholder='Enter name' id="name" name="name"
       onChange={(e)=>setInput(e.target.value)} value={input}/>
