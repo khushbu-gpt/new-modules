@@ -3,6 +3,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
+import Todos from "./components/Todo";
 
 const queryClient = new QueryClient();
 
@@ -12,6 +13,7 @@ export default function App() {
       <Example />
     </QueryClientProvider>
   );
+
 }
 
 function Example() {
@@ -29,7 +31,7 @@ function Example() {
 
   return (
     <div style={{display:"flex",gap:"25px",flexWrap:"wrap",width:"100%"}}>
-      {data.map((data) => (
+      {/* {data.map((data) => (
         <div key={data.title} style={{width:"300px",border:"4px solid gray"}}>
           <img src={data.image} alt="" width={200}/>
           <h2> {data.title}</h2>{" "}
@@ -37,7 +39,8 @@ function Example() {
           <h3>{data.brand}</h3>
           <p>{data.description}</p>
         </div>
-      ))}
+      ))} */}
+      <Todos/>
     </div>
   );
 }
