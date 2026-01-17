@@ -1,7 +1,7 @@
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
+  useQuery
 } from "@tanstack/react-query";
 import Todos from "./components/Todo";
 
@@ -31,15 +31,15 @@ function Example() {
 
   return (
     <div style={{display:"flex",gap:"25px",flexWrap:"wrap",width:"100%"}}>
-      {/* {data.map((data) => (
-        <div key={data.title} style={{width:"300px",border:"4px solid gray"}}>
+      {data?.slice(0,4).map((data) => (
+        <div key={data.title} style={{width:"300px",border:"2px solid gray"}}>
           <img src={data.image} alt="" width={200}/>
-          <h2> {data.title}</h2>{" "}
-          <h2> {data.price}</h2>{" "}
+          <h3> {data.title}</h3>{" "}
+          {/* <h2> {data.price}</h2>{" "}
           <h3>{data.brand}</h3>
-          <p>{data.description}</p>
+          <p>{data.description}</p> */}
         </div>
-      ))} */}
+      ))}
       <Todos/>
     </div>
   );
