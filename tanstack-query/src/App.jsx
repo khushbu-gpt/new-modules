@@ -4,13 +4,19 @@ import {
   useQuery
 } from "@tanstack/react-query";
 import Todos from "./components/Todo";
-
+import { useState } from "react";
+import {ReactQueryDevtoolsPanel} from "@tanstack/react-query-devtools"
 const queryClient = new QueryClient();
 
 export default function App() {
+  const [isOpen,setIsOpen]=useState(false)
   return (
     <QueryClientProvider client={queryClient}>
       <Example />
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+      >{`${isOpen ? 'Close' : 'Open'} the devtools panel`}</button>
+      {isOpen && <ReactQueryDevtoolsPanel onClose={() => setIsOpen(false)} />}
     </QueryClientProvider>
   );
 
@@ -23,8 +29,7 @@ function Example() {
       fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
         .catch((err) => console.log(err)),
-  });
-  console.log(data);
+  })
   if (isPending) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;

@@ -24,8 +24,8 @@ export default function Todos() {
   return (
     <div>
       <ul>
-        {query.data?.slice(0,10).map((todo) => (
-          <li key={todo.userId}>{todo.todo}</li>
+        {query.data?.map((todo) => (
+          <li key={todo.id}>{todo.todo}</li>
         ))}
       </ul>
 
@@ -64,7 +64,6 @@ async function postTodo(newTodo) {
     body: JSON.stringify(newTodo),
   });
   const result = await res.json();
-  console.log("result", result);
   if (!res.ok) {
     throw new Error("Failed to add todo");
   }
